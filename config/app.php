@@ -111,8 +111,8 @@ return [
 	'providers' => [
 
 		/*
-		 * Laravel Framework Service Providers...
-		 */
+		* Laravel Framework Service Providers...
+		*/
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
 		'Illuminate\Auth\AuthServiceProvider',
 		'Illuminate\Bus\BusServiceProvider',
@@ -136,9 +136,14 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 
+		/**
+		* Vendor Service Providers
+		*/
+		'Collective\Html\HtmlServiceProvider',
+
 		/*
-		 * Application Service Providers...
-		 */
+		* Application Service Providers...
+		*/
 		'Inventario\Providers\AppServiceProvider',
 		'Inventario\Providers\BusServiceProvider',
 		'Inventario\Providers\ConfigServiceProvider',
@@ -193,6 +198,11 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
 
+		/**
+		* Vendors Aliases
+		*/
+		'Form' => 'Collective\Html\FormFacade',
+    'Html' => 'Collective\Html\HtmlFacade',
 	],
 
 ];
