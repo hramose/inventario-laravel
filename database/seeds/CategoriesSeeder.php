@@ -15,12 +15,12 @@ class CategoriesSeeder extends Seeder {
 //------------------------------------------------------------------------------
 		\DB::table('categories')-> insert(array(
 			'nombre' 				=> 'Categoría Uno',
-			'descripcion'		=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+			'descripcion'		=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
 		));
 //------------------------------------------------------------------------------
 		\DB::table('categories')-> insert(array(
 			'nombre' 				=> 'Categoría Dos',
-			'descripcion'		=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+			'descripcion'		=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
 		));
 //------------------------------------------------------------------------------
 	}
