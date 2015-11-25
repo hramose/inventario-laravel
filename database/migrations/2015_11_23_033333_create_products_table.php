@@ -25,9 +25,10 @@ class CreateProductsTable extends Migration {
 			$table->enum('tipo', ['consumible','no_consumible']);
 //------------------------------------------------------------------------------
 			$table->integer('categories_id')->unsigned();
-			$table->foreign('categories_id')
-					->references('id')
-					->on('categories');
+			$table->foreign('categories_id')->references('id')->on('categories');
+//------------------------------------------------------------------------------
+			$table->integer('brands_id')->unsigned();
+			$table->foreign('brands_id')->references('id')->on('brands');
 //------------------------------------------------------------------------------
 			$table->softDeletes(); // Campo para borrado logico
 			$table->timestamps();
