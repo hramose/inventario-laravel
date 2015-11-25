@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
-class LoansSeeder extends Seeder {
+class LoanSeeder extends Seeder {
 
 	/**
 	 * Run the database seeds.
