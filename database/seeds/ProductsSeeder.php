@@ -21,7 +21,7 @@ class ProductsSeeder extends Seeder {
 			'descripcion' 	=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
 			'cantidad' 			=> 10,
 			'tipo' 					=> 'consumible',
-			'categories_id' => '1',
+			'categories_id' => '1'
 		));
 //------------------------------------------------------------------------------
 		\DB::table('products')-> insert(array(
@@ -32,7 +32,7 @@ class ProductsSeeder extends Seeder {
 			'descripcion' 	=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
 			'cantidad' 			=> 10,
 			'tipo' 					=> 'no_consumible',
-			'categories_id' => '2',
+			'categories_id' => '2'
 		));
 //------------------------------------------------------------------------------
 	}
