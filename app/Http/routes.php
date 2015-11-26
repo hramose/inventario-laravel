@@ -21,5 +21,8 @@ Route::controllers([
 ]);
 
 //------------------------------------------------------------------------------
-Route::resource('usuarios','UsersController');
+//Usuarios
+Route::group(['middleware' => ['auth', 'solo_admin'], 'namespace' => 'Users'], function () {
+	Route::resource('usuarios','UsersController');
+});
 //------------------------------------------------------------------------------
