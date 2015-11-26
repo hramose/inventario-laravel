@@ -4,6 +4,7 @@ use Inventario\Http\Requests;
 use Inventario\Http\Controllers\Controller;
 
 use Inventario\User;
+use Inventario\Http\Requests\CreateUserRequest;
 
 use Illuminate\Support\Facades\Request as FacadesRequest;
 use Illuminate\Routing\Redirector;
@@ -40,10 +41,8 @@ class UsersController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(CreateUserRequest $request)
 	{
-		//dd($request->all());
-
 		$user = new User($request->all());
 		$user->save();
 
