@@ -7,6 +7,10 @@
 	{!! Form::text('email', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
+	{!! Form::label('carnet', 'Carnet'); !!}
+	{!! Form::text('carnet', null, ['class' => 'form-control']) !!}
+</div>
+<div class="form-group">
 	{!! Form::label('password', 'Contraseña'); !!}
 	{!! Form::password('password', ['class' => 'form-control']) !!}
 </div>
@@ -15,6 +19,6 @@
 	{!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-	{!! Form::label('type', 'Tipo'); !!}
-	{!! Form::select('type', ['usuario' => 'Usuario', 'administrador' => 'Aministrador'], null, ['class' => 'form-control']) !!}
+	{!! Form::label('rol', 'Tipo'); !!}
+	{!! Form::select('rol', ['user' => 'Usuario', 'admin' => 'Aministrador'], null, ['class' => 'form-control']) !!}
 </div>
