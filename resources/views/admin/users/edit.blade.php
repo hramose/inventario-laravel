@@ -17,7 +17,7 @@ Editar Usuario
 
 					@include('admin.users.partials.fields')
 
-					<button type="submit" class="btn btn-default">Guardar</button>
+					<button type="submit" class="btn btn-default">Actualizar</button>
 					{!! Form::close() !!}
 				</div>
 			</div>
