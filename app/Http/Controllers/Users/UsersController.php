@@ -40,9 +40,16 @@ class UsersController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		//dd($request->all());
+
+		$user = new User($request->all());
+		$user->save();
+
+		Session::flash('message', 'El usuario "'.$user->name.'" fue creado ' );
+
+		return redirect()->route('usuarios.index');
 	}
 
 	/**
