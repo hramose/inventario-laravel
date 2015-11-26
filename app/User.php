@@ -41,4 +41,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	protected $dates = ['deleted_at'];
 
+	public function setPasswordAttribute($value)
+	{
+		$this->attributes['password'] = \Hash::make($value);
+	}
+
 }
