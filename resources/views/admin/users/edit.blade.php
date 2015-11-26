@@ -15,7 +15,7 @@ Editar Usuario
 				<div class="panel-body">
 					{!! Form::model($user, ['route' => ['usuarios.update', $user], 'method' => 'PUT']) !!}
 
-					@include('users.partials.fields')
+					@include('admin.users.partials.fields')
 
 					<button type="submit" class="btn btn-default">Guardar</button>
 					{!! Form::close() !!}
