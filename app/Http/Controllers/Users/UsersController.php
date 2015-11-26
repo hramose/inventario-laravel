@@ -18,7 +18,7 @@ class UsersController extends Controller {
 	{
 		$users = User::paginate(10);
 
-		dd($users);
+		return view('admin.users.index', compact('users'));
 	}
 
 	/**
