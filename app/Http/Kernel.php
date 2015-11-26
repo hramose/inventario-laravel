@@ -27,6 +27,7 @@ class Kernel extends HttpKernel {
 		'auth' => 'Inventario\Http\Middleware\Authenticate',
 		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
 		'guest' => 'Inventario\Http\Middleware\RedirectIfAuthenticated',
+		'solo_admin' =>  'Inventario\Http\Middleware\SoloAdmin'
 	];
 
 }
