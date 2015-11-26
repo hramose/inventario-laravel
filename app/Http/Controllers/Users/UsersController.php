@@ -84,7 +84,14 @@ class UsersController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$user = User::findOrFail($id);
+
+		$user->fill(Request::all());
+		$user->save();
+
+		Session::flash('message', 'El usuario "'.$user->name.'" fue editado' );
+
+		return redirect()->route('usuarios.index');
 	}
 
 	/**
@@ -97,7 +104,7 @@ class UsersController extends Controller {
 	{
 
 		$user = User::findOrFail($id);
-		$user -> delete();
+		$user->delete();
 
 		Session::flash('message', 'El usuario "'.$user->name.'" fue eliminado' );
 
