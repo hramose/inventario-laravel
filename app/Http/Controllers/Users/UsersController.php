@@ -5,6 +5,10 @@ use Inventario\Http\Controllers\Controller;
 
 use Inventario\User;
 
+use Illuminate\Support\Facades\Request as FacadesRequest;
+use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller {
@@ -82,7 +86,13 @@ class UsersController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+
+		$user = User::findOrFail($id);
+		$user -> delete();
+
+		Session::flash('message', 'El usuario "'.$user->name.'" fue eliminado' );
+
+		return \Redirect::back();
 	}
 
 }
