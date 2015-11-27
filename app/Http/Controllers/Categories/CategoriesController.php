@@ -23,7 +23,9 @@ class CategoriesController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$categories =  Categorie::paginate(10);
+
+		return view('categories.index', compact('categories'));
 	}
 
 	/**
@@ -33,7 +35,7 @@ class CategoriesController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('categories.create');
 	}
 
 	/**
@@ -41,9 +43,14 @@ class CategoriesController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(CreateCategorieRequest $request)
 	{
-		//
+		$categorie = new Categorie($request->all());
+		$categorie->save();
+
+		Session::flash('message', 'La categoria "'.$categorie->nombre.'" fue creada');
+
+		return redirect()->route('categorias.index');
 	}
 
 	/**
@@ -65,7 +72,9 @@ class CategoriesController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$categorie = Categorie::findOrFail($id);
+
+		return view('categories.edit', compact('categorie'));
 	}
 
 	/**
@@ -74,9 +83,16 @@ class CategoriesController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(EditCategorieRequest $request, $id)
 	{
-		//
+		$categorie = Categorie::findOrFail($id);
+
+		$categorie->fill($request->all());
+		$categorie->save();
+
+		Session::flash('message', 'La categoria "'.$categorie->nombre.'" fue editada' );
+
+		return redirect()->route('categorias.index');
 	}
 
 	/**
@@ -87,7 +103,12 @@ class CategoriesController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$categorie = Categorie::findOrFail($id);
+		$categorie->delete();
+
+		Session::flash('message', 'La categoria "'.$categorie->nombre.'" fue eliminada' );
+
+		return \Redirect::back();
 	}
 
 }
