@@ -28,5 +28,9 @@ class Loan extends Model {
 
 	protected $dates = ['deleted_at'];
 
-
+//------------------------------------------------------------------------------
+	public function products(){
+		return $this->belongsTo('Inventario\Product');
+	}
+//------------------------------------------------------------------------------
 }
