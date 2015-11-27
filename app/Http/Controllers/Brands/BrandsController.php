@@ -5,7 +5,7 @@ namespace Inventario\Http\Controllers\Brands;
 use Inventario\Http\Requests;
 use Inventario\Http\Controllers\Controller;
 
-use Inventario\Brands;
+use Inventario\Brand;
 use Inventario\Http\Requests\CreateBrandRequest;
 use Inventario\Http\Requests\EditBrandRequest;
 

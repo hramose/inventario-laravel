@@ -3,7 +3,7 @@
 use Inventario\Http\Requests;
 use Inventario\Http\Controllers\Controller;
 
-use Inventario\Loans;
+use Inventario\Loan;
 use Inventario\Http\Requests\CreateLoanRequest;
 use Inventario\Http\Requests\EditLoanRequest;
 

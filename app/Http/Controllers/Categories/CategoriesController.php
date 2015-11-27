@@ -3,7 +3,7 @@
 use Inventario\Http\Requests;
 use Inventario\Http\Controllers\Controller;
 
-use Inventario\Categories;
+use Inventario\Categorie;
 use Inventario\Http\Requests\CreateCategorieRequest;
 use Inventario\Http\Requests\EditCategorieRequest;
 
