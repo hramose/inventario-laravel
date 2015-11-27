@@ -3,6 +3,12 @@
 use Inventario\Http\Requests;
 use Inventario\Http\Controllers\Controller;
 
+use Inventario\Loans;
+
+use Illuminate\Support\Facades\Request as FacadesRequest;
+use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class LoansController extends Controller {

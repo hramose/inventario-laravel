@@ -3,7 +3,14 @@
 use Inventario\Http\Requests;
 use Inventario\Http\Controllers\Controller;
 
+use Inventario\Categories;
+
+use Illuminate\Support\Facades\Request as FacadesRequest;
+use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+
 
 class CategoriesController extends Controller {
 
