@@ -5,6 +5,7 @@ use Inventario\Http\Controllers\Controller;
 
 use Inventario\User;
 use Inventario\Http\Requests\CreateUserRequest;
+use Inventario\Http\Requests\EditUserRequest;
 
 use Illuminate\Support\Facades\Request as FacadesRequest;
 use Illuminate\Routing\Redirector;
@@ -81,11 +82,11 @@ class UsersController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(EditUserRequest $request, $id)
 	{
 		$user = User::findOrFail($id);
 
-		$user->fill(Request::all());
+		$user->fill($request->all());
 		$user->save();
 
 		Session::flash('message', 'El usuario "'.$user->name.'" fue editado' );
