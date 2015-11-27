@@ -30,8 +30,8 @@ class CreateProductRequest extends Request
           //'descripcion'     => 'required',
           'cantidad'        => 'required',
           'tipo'            => 'required',
-          'categories_id'   => 'required',
-          'brand_id'        => 'required'
+          //'categories_id'   => 'required',
+          //'brand_id'        => 'required'
         ];
     }
 }
