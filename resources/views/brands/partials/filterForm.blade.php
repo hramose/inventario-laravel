@@ -1,4 +1,4 @@
-{!! Form::open(['route' => ['marca.show', 'busqueda'], 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right', 'role' => 'search' ]) !!}
+{!! Form::open(['route' => ['marcas.show', 'busqueda'], 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right', 'role' => 'search' ]) !!}
 <div class="form-group">
 	{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Buscar marca']) !!}
 </div>
