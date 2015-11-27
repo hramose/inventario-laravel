@@ -13,9 +13,9 @@ Editar Marca
 				@include('partials.validateMessage')
 
 				<div class="panel-body">
-					{!! Form::model($brand, ['route' => ['marca.update', $brand], 'method' => 'PUT']) !!}
+					{!! Form::model($brand, ['route' => ['marcas.update', $brand], 'method' => 'PUT']) !!}
 
-					@include('categories.partials.fields')
+					@include('brands.partials.fields')
 
 					<button type="submit" class="btn btn-default">Actualizar</button>
 					{!! Form::close() !!}
