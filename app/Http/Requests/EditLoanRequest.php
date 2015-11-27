@@ -28,7 +28,7 @@ class EditLoanRequest extends Request
           'descripcion'     => 'required',
           'inicio_prestamo' => 'required|date_format:d/m/Y',
           //'fin_prestamo'    => 'required|date_format:d/m/Y',
-          'products_id'     => 'required'
+          //'products_id'     => 'required'
         ];
     }
 }
