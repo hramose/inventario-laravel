@@ -20,7 +20,7 @@ Usuarios
 				</div>
 			</div>
 			{!! $categories->render() !!}
-			<div class="alert alert-info"><span class="badge">{{ $categories->total() }}</span> Usuarios Encontrados</div>
+			<div class="alert alert-info"><span class="badge">{{ $categories->total() }}</span> Categorias Encontrados</div>
 		</div>
 	</div>
 </div>
