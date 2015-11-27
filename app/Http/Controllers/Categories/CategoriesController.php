@@ -1,4 +1,4 @@
-<?php namespace Inventario\Http\Controllers;
+<?php namespace Inventario\Http\Controllers\Categories;
 
 use Inventario\Http\Requests;
 use Inventario\Http\Controllers\Controller;

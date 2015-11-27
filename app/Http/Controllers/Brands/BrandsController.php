@@ -1,6 +1,6 @@
 <?php
 
-namespace Inventario\Http\Controllers;
+namespace Inventario\Http\Controllers\Brands;
 
 use Illuminate\Http\Request;
 
