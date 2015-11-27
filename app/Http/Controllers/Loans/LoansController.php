@@ -4,6 +4,8 @@ use Inventario\Http\Requests;
 use Inventario\Http\Controllers\Controller;
 
 use Inventario\Loans;
+use Inventario\Http\Requests\CreateLoanRequest;
+use Inventario\Http\Requests\EditLoanRequest;
 
 use Illuminate\Support\Facades\Request as FacadesRequest;
 use Illuminate\Routing\Redirector;

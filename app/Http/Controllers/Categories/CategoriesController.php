@@ -4,6 +4,8 @@ use Inventario\Http\Requests;
 use Inventario\Http\Controllers\Controller;
 
 use Inventario\Categories;
+use Inventario\Http\Requests\CreateCategorieRequest;
+use Inventario\Http\Requests\EditCategorieRequest;
 
 use Illuminate\Support\Facades\Request as FacadesRequest;
 use Illuminate\Routing\Redirector;

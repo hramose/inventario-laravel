@@ -6,6 +6,8 @@ use Inventario\Http\Requests;
 use Inventario\Http\Controllers\Controller;
 
 use Inventario\Brands;
+use Inventario\Http\Requests\CreateBrandRequest;
+use Inventario\Http\Requests\EditBrandRequest;
 
 use Illuminate\Support\Facades\Request as FacadesRequest;
 use Illuminate\Routing\Redirector;
