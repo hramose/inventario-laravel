@@ -12,7 +12,7 @@ Marcas
 				@include('brands.partials.filterForm')
 				<div class="panel-body">
 					<p>
-						<a class="btn btn-default" href="{{ route('marcas.create') }}" role="button"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;&nbsp;Agregar Categoría</a>
+						<a class="btn btn-default" href="{{ route('marcas.create') }}" role="button"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;&nbsp;Agregar Marca</a>
 					</p>
 
 					@include('brands.partials.table')
