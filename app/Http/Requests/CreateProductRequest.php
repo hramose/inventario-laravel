@@ -13,7 +13,7 @@ class CreateProductRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,14 @@ class CreateProductRequest extends Request
     public function rules()
     {
         return [
-            //
+          'nombre'          => 'required',
+          'modelo'          => 'required',
+          'serie'           => 'required',
+          //'descripcion'     => 'required',
+          'cantidad'        => 'required',
+          'tipo'            => 'required',
+          'categories_id'   => 'required',
+          'brand_id'        => 'required'
         ];
     }
 }

@@ -13,7 +13,7 @@ class CreateLoanRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,12 @@ class CreateLoanRequest extends Request
     public function rules()
     {
         return [
-            //
+            'cantidad'        => 'required',
+            'descripcion'     => 'required',
+            'inicio_prestamo' => 'required|date_format:d/m/Y',
+            //'fin_prestamo'    => 'required|date_format:d/m/Y',
+            'products_id'     => 'required'
+
         ];
     }
 }
