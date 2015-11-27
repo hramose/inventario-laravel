@@ -48,7 +48,7 @@ class CategoriesController extends Controller {
 		$categorie = new Categorie($request->all());
 		$categorie->save();
 
-		Session::flash('message', 'La categoria "'.$categorie->nombre.'" fue creada');
+		Session::flash('message', 'La categoría "'.$categorie->nombre.'" fue creada');
 
 		return redirect()->route('categorias.index');
 	}
@@ -90,7 +90,7 @@ class CategoriesController extends Controller {
 		$categorie->fill($request->all());
 		$categorie->save();
 
-		Session::flash('message', 'La categoria "'.$categorie->nombre.'" fue editada' );
+		Session::flash('message', 'La categoría "'.$categorie->nombre.'" fue editada' );
 
 		return redirect()->route('categorias.index');
 	}
@@ -106,7 +106,7 @@ class CategoriesController extends Controller {
 		$categorie = Categorie::findOrFail($id);
 		$categorie->delete();
 
-		Session::flash('message', 'La categoria "'.$categorie->nombre.'" fue eliminada' );
+		Session::flash('message', 'La categoría "'.$categorie->nombre.'" fue eliminada' );
 
 		return \Redirect::back();
 	}
