@@ -28,4 +28,11 @@ class Brand extends Model {
 
 	protected $dates = ['deleted_at'];
 
+//------------------------------------------------------------------------------
+	public function products()
+	{
+		return $this->hasMany('Inventario\Brand', 'brands_id');
+	}
+//------------------------------------------------------------------------------
+
 }
