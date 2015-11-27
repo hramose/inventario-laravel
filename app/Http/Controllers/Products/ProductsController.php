@@ -7,6 +7,9 @@ use Inventario\Product;
 use Inventario\Http\Requests\CreateProductRequest;
 use Inventario\Http\Requests\EditProductRequest;
 
+use Inventario\Brand;
+use Inventario\Categorie;
+
 use Illuminate\Support\Facades\Request as FacadesRequest;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Session;
@@ -22,7 +25,9 @@ class ProductsController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$products = Product::paginate(10);
+
+		return view('products.index', compact('products'));
 	}
 
 	/**
@@ -32,7 +37,10 @@ class ProductsController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		$brands 	= Brand::lists('nombre', 'id');
+		$categories	= Categorie::lists('nombre', 'id');
+
+		return view('products.create', compact(['brands', 'categories']));
 	}
 
 	/**
@@ -40,9 +48,14 @@ class ProductsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(CreateProductRequest $request)
 	{
-		//
+		$product = new Product($request->all());
+		$product->save();
+
+		Session::flash('message', 'El producto "'.$product->nombre.'" fue añadido al sistema' );
+
+		return redirect()->route('productos.index');
 	}
 
 	/**
@@ -64,7 +77,12 @@ class ProductsController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$product = Product::findOrFail($id);
+
+		$brands 	= Brand::lists('nombre', 'id');
+		$categories	= Categorie::lists('nombre', 'id');
+
+		return view('products.edit', compact(['product', 'brands', 'categories']));
 	}
 
 	/**
@@ -73,9 +91,16 @@ class ProductsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(EditProductRequest $request, $id)
 	{
-		//
+		$product = Product::findOrFail($id);
+
+		$product->fill($request->all());
+		$product->save();
+
+		Session::flash('message', 'El producto "'.$product->nombre.'" fue editado' );
+
+		return redirect()->route('productos.index');
 	}
 
 	/**
@@ -86,7 +111,12 @@ class ProductsController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$producto = Product::findOrFail($id);
+		$producto->delete();
+
+		Session::flash('message', 'El producto "'.$producto->nombre.'" fue eliminado' );
+
+		return \Redirect::back();
 	}
 
 }
