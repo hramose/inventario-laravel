@@ -28,4 +28,11 @@ class Categorie extends Model {
 
 	protected $dates = ['deleted_at'];
 
+//------------------------------------------------------------------------------
+	public function products()
+	{
+		return $this->hasMany('Inventario\Categorie', 'categories_id');
+	}
+//------------------------------------------------------------------------------
+
 }
