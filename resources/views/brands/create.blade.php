@@ -13,7 +13,7 @@ Nueva Marca
 				@include('partials.validateMessage')
 
 				<div class="panel-body">
-					{!! Form::open(['route' => 'marca.store', 'method' => 'POST']) !!}
+					{!! Form::open(['route' => 'marcas.store', 'method' => 'POST']) !!}
 
 					@include('brands.partials.fields')
 
