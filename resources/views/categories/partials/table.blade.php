@@ -9,11 +9,11 @@
 			</tr>
 		</thead>
 		<tbody>
-			@foreach ($users as $user)
+			@foreach ($categories as $categorie)
 			<tr>
-				<td>{{ $user->id }}</td>
-				<td>{{ $user->nombre }}</td>
-				<td>{{ $user->descripcion }}</td>
+				<td>{{ $categorie->id }}</td>
+				<td>{{ $categorie->nombre }}</td>
+				<td>{{ $categorie->descripcion }}</td>
 				<td class="col-md-2">
 					<ul class="list-inline  text-center">
 						<li><a class="btn btn-default  btn-sm  btn-sp" href="{{ route('categorias.edit', $categorie) }}" onclick="return confirm('¿Seguro que desea editar?')"><i class="glyphicon glyphicon-pencil"></i>&nbsp;&nbsp;&nbsp;Editar</a></li>
