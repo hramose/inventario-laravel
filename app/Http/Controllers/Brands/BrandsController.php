@@ -24,7 +24,9 @@ class BrandsController extends Controller
      */
     public function index()
     {
-        //
+        $brands = Brand::paginate(10);
+
+        return view('brands.index', compact('brands'));
     }
 
     /**
@@ -34,7 +36,7 @@ class BrandsController extends Controller
      */
     public function create()
     {
-        //
+        return view('brands.create');
     }
 
     /**
@@ -43,9 +45,14 @@ class BrandsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateBrandRequest $request)
     {
-        //
+        $brand = new Brand($request->all());
+		$brand->save();
+
+        Session::flash('message', 'La marca "'.$brand->nombre.'" fue creada');
+
+		return redirect()->route('marcas.index');
     }
 
     /**
@@ -67,7 +74,9 @@ class BrandsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $brand = Brand::findOrFail($id);
+
+        return view('brands.edit', compact('brand'));
     }
 
     /**
@@ -77,9 +86,16 @@ class BrandsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditBrandRequest $request, $id)
     {
-        //
+        $brand = Brand::findOrFail($id);
+
+        $brand->fill($request->all());
+		$brand->save();
+
+        Session::flash('message', 'La marca "'.$brand->nombre.'" fue editada' );
+
+        return redirect()->route('marcas.index');
     }
 
     /**
@@ -90,6 +106,11 @@ class BrandsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $brand = Brand::findOrFail($id);
+		$brand->delete();
+
+        Session::flash('message', 'La marca "'.$brand->nombre.'" fue eliminada' );
+
+        return \Redirect::back();
     }
 }
