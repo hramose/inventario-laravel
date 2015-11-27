@@ -17,7 +17,6 @@ class CreateProductsTable extends Migration {
 //------------------------------------------------------------------------------
 			$table->increments('id');
 			$table->string('nombre');
-			$table->string('marca');
 			$table->string('modelo');
 			$table->string('serie');
 			$table->string('descripcion');
