@@ -7,6 +7,8 @@ use Inventario\Loan;
 use Inventario\Http\Requests\CreateLoanRequest;
 use Inventario\Http\Requests\EditLoanRequest;
 
+use Inventario\Product;
+
 use Illuminate\Support\Facades\Request as FacadesRequest;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Session;
@@ -22,7 +24,9 @@ class LoansController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$loans = Loan::paginate(10);
+
+		return view('loans.index', compact('loans'));
 	}
 
 	/**
@@ -32,7 +36,9 @@ class LoansController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		$products = Product::lists('nombre', 'id');
+
+		return view('loans.create', compact('products'));
 	}
 
 	/**
@@ -40,9 +46,14 @@ class LoansController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(CreateLoanRequest $request)
 	{
-		//
+		$loan = new Loan($request->all());
+		$loan->save();
+
+		Session::flash('message', 'El prestamo del producto "'.$loan->products->nombre.'" fue añadido al sistema' );
+
+		return redirect()->route('prestamos.index');
 	}
 
 	/**
@@ -64,7 +75,11 @@ class LoansController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$loan = Loan::findOrFail($id);
+
+		$products = Product::lists('nombre', 'id');
+
+		return view('loans.edit', compact(['products', 'loan']));
 	}
 
 	/**
@@ -73,9 +88,16 @@ class LoansController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(EditLoanRequest $request, $id)
 	{
-		//
+		$loan = Loan::findOrFail($id);
+
+		$loan->fill($request->all());
+		$loan->save();
+
+		Session::flash('message', 'El prestamo del producto "'.$loan->products->nombre.'" fue editado' );
+
+		return redirect()->route('prestamos.index');
 	}
 
 	/**
@@ -86,7 +108,12 @@ class LoansController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$loan = Loan::findOrFail($id);
+		$loan->delete();
+
+		Session::flash('message', 'El prestamo del producto "'.$loan->products->nombre.'" fue eliminado' );
+
+		return \Redirect::back();
 	}
 
 }
