@@ -45,8 +45,14 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Products'], function () {
 });
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
-//productos
+//prestamos
 Route::group(['middleware' => 'auth', 'namespace' => 'Loans'], function () {
 	Route::resource('prestamos','LoansController');
+});
+//otras acciones de prestamos
+Route::group(['middleware' => 'auth', 'namespace' => 'Loans'], function () {
+	Route::get('prestamos/complete/{id}','LoansController@complete');
+	Route::get('prestamos/incomplete/{id}','LoansController@incomplete');
+	Route::post('prestamos/give-back/{id}','LoansController@giveback');
 });
 //------------------------------------------------------------------------------
