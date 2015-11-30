@@ -19,7 +19,7 @@ class CreateLoansTable extends Migration {
 			$table->integer('cantidad');
 			$table->string('descripcion');
 			$table->date('inicio_prestamo');
-			$table->date('fin_prestamo');
+			$table->date('fin_prestamo')->nullable();
 //------------------------------------------------------------------------------
 			$table->integer('products_id')->unsigned();
 			$table->foreign('products_id')->references('id')->on('products');
