@@ -91,4 +91,13 @@ class Loan extends Model {
 	}
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
+	public function scopeComplete($query)
+	{
+		$query->where('fin_prestamo','!=', '');
+	}
+//------------------------------------------------------------------------------
+	public function scopeIncomplete($query)
+	{
+		$query->where('fin_prestamo','=', null);
+	}
 }
