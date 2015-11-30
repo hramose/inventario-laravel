@@ -15,7 +15,7 @@ Nueva Prestamo
 				<div class="panel-body">
 					{!! Form::open(['route' => 'prestamos.store', 'method' => 'POST']) !!}
 
-					@include('loans.partials.fields')
+					@include('loans.partials.fieldsCreate')
 
 					<button type="submit" class="btn btn-default">Guardar</button>
 					{!! Form::close() !!}

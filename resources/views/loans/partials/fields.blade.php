@@ -16,5 +16,5 @@
 </div>
 <div class="form-group">
 	{!! Form::label('fin_prestamo', 'Fecha de devolución'); !!}
-	{!! Form::text('fin_prestamo', null, ['class' => 'form-control', 'placeholder' => 'Ingrese la fecha de devolución del producto']) !!}
+	{!! Form::text('fin_prestamo', null, ['class' => 'form-control', 'disabled', 'placeholder' => 'Ingrese la fecha de devolución del producto']) !!}
 </div>
