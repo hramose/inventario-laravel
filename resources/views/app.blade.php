@@ -84,6 +84,8 @@
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="{{ url('/prestamos/create') }}">Agregar Prestamo</a></li>
 							<li><a href="{{ url('/prestamos') }}">Listar Prestamos</a></li>
+							<li><a href="{{ url('/prestamos/complete') }}">Listar Prestamos Completos</a></li>
+							<li><a href="{{ url('/prestamos/incomplete') }}">Listar Prestamos Pendientes</a></li>
 						</ul>
 					</li>
 					{{-- Fin Prestamos --}}
