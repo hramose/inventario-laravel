@@ -116,4 +116,23 @@ class LoansController extends Controller {
 		return \Redirect::back();
 	}
 
+	//--------------------------------------------------------------------------
+	// Funciones especiales
+	//--------------------------------------------------------------------------
+	/**
+	 * Completa un prestamo.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	 public function giveback($id)
+	 {
+		 $loan = Loan::findOrFail($id);
+
+		 $products = Product::lists('nombre', 'id');
+
+		 return view('loans.giveback', compact(['products', 'loan']));
+	 }
+
+
 }
