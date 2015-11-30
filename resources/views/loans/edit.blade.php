@@ -15,7 +15,7 @@ Editar Prestamo
 				<div class="panel-body">
 					{!! Form::model($loan, ['route' => ['prestamos.update', $loan], 'method' => 'PUT']) !!}
 
-					@include('loans.partials.fields')
+					@include('loans.partials.fieldsEdit')
 
 					<button type="submit" class="btn btn-default">Actualizar</button>
 					{!! Form::close() !!}
