@@ -10,6 +10,16 @@ Prestamos
 				<div class="panel-heading"><span class="text-uppercase">Prestamos</span></div>
 				@include('partials.successMessage')
 				{{-- @include('loans.partials.filterForm') --}}
+
+				<p>
+					<ul class="list-inline pull-right">
+						<li><a href="{{ url('prestamos/') }}" class="btn btn-default"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;&nbsp;Todos</a></li>
+						<li><a href="{{ url('prestamos/complete') }}" class="btn btn-default"><i class="glyphicon glyphicon-ok-sign"></i>&nbsp;&nbsp;&nbsp;Completados</a></li>
+						<li><a href="{{ url('prestamos/incomplete') }}" class="btn btn-default"><i class="glyphicon glyphicon-remove-sign"></i>&nbsp;&nbsp;&nbsp;Incompletos</a></li>
+						<li></li>
+					</ul>
+				</p>
+
 				<div class="panel-body">
 					<p>
 						<a class="btn btn-default" href="{{ route('prestamos.create') }}" role="button"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;&nbsp;Agregar Prestamo</a>
