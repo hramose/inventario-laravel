@@ -134,5 +134,29 @@ class LoansController extends Controller {
 		 return view('loans.giveback', compact(['products', 'loan']));
 	 }
 
+	 /**
+ 	 * Filtra tramites completos.
+ 	 *
+ 	 * @return Response
+ 	 */
+ 	 public function complete()
+ 	 {
+		 $loans = Loan::complete()->orderBy('id', 'ASC')->paginate(10);
+
+		 return view('loans.index', compact('loans'));
+ 	 }
+
+	 /**
+ 	 * Filtra tramites incompletos.
+ 	 *
+ 	 * @return Response
+ 	 */
+ 	 public function incomplete()
+ 	 {
+		 $loans = Loan::incomplete()->orderBy('id', 'ASC')->paginate(10);
+
+		 return view('loans.index', compact('loans'));
+ 	 }
+
 
 }
