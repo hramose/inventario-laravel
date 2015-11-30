@@ -9,7 +9,7 @@ Prestamos
 			<div class="panel panel-default">
 				<div class="panel-heading"><span class="text-uppercase">Prestamos</span></div>
 				@include('partials.successMessage')
-				@include('loans.partials.filterForm')
+				{{-- @include('loans.partials.filterForm') --}}
 				<div class="panel-body">
 					<p>
 						<a class="btn btn-default" href="{{ route('prestamos.create') }}" role="button"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;&nbsp;Agregar Prestamo</a>

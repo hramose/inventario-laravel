@@ -9,7 +9,7 @@ Categorías
 			<div class="panel panel-default">
 				<div class="panel-heading"><span class="text-uppercase">Categorías</span></div>
 				@include('partials.successMessage')
-				@include('categories.partials.filterForm')
+				{{-- @include('categories.partials.filterForm') --}}
 				<div class="panel-body">
 					<p>
 						<a class="btn btn-default" href="{{ route('categorias.create') }}" role="button"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;&nbsp;Agregar Categoría</a>

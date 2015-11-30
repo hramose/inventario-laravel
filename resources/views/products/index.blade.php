@@ -9,7 +9,7 @@ Productos
 			<div class="panel panel-default">
 				<div class="panel-heading"><span class="text-uppercase">Productos</span></div>
 				@include('partials.successMessage')
-				@include('products.partials.filterForm')
+				{{-- @include('products.partials.filterForm') --}}
 				<div class="panel-body">
 					<p>
 						<a class="btn btn-default" href="{{ route('productos.create') }}" role="button"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;&nbsp;Agregar Producto</a>
