@@ -47,8 +47,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Products'], function () {
 //------------------------------------------------------------------------------
 //prestamos
 Route::group(['middleware' => 'auth', 'namespace' => 'Loans'], function () {
-	Route::get('prestamos/complete/{id}','LoansController@complete');
-	Route::get('prestamos/incomplete/{id}','LoansController@incomplete');
+	Route::get('prestamos/complete','LoansController@complete');
+	Route::get('prestamos/incomplete','LoansController@incomplete');
 	Route::get('prestamos/{id}/give-back','LoansController@giveback');
 	//
 	Route::resource('prestamos','LoansController');
