@@ -34,8 +34,11 @@
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
+					@if (Auth::guest())
+					@else
 					<li><a href="{{ url('/inicio') }}">Inicio</a></li>
 					<li><a href="{{ url('/ayuda') }}">Ayuda</a></li>
+					@endif
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
