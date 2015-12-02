@@ -49,11 +49,41 @@ class LoansController extends Controller {
 	public function store(CreateLoanRequest $request)
 	{
 		$loan = new Loan($request->all());
-		$loan->save();
+		$products = Product::findOrFail($loan->products->id);
 
-		Session::flash('message', 'El prestamo del producto "'.$loan->products->nombre.'" fue añadido al sistema' );
+		if ($products->cantidad - $loan->cantidad > 0) {
 
-		return redirect()->route('prestamos.index');
+			if (strcmp ($products->tipo, 'consumible' ) == 0) {
+				//Los productos consumibles se restan de las existentecias
+
+				$products->cantidad = ($products->cantidad) - ($loan->cantidad); //Se resta cantidad consumida de la cantidad de productos existentes
+				$loan->fin_prestamo = $loan->inicio_prestamo; //Los productos consumibles se consumen el mismo día
+
+				$loan->save(); //Se guardan registros en prestamos
+				$products->save(); //Se actualiza la cantidad en productos
+			}
+			else {
+				//Los productos no consumibles no se restan
+				$loan->save(); //Se guardan registros en prestamos
+			}
+
+			Session::flash('message', 'El prestamo del producto "'.$loan->products->nombre.'" fue añadido al sistema' );
+
+			return redirect()->route('prestamos.index');
+		}
+		else if ($products->cantidad - $loan->cantidad == 0) {
+			Session::flash('message', 'El producto "'.$loan->products->nombre.'" fue agotado' );
+
+			return redirect()->route('prestamos.index');
+		}
+		else {
+			Session::flash('error', 'El prestamo del producto "'.$loan->products->nombre.'" no pudo ser añadido
+							debido a falta de existencias');
+
+			return redirect()->route('prestamos.index');
+		}
+
+
 	}
 
 	/**
