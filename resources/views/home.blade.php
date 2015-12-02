@@ -7,6 +7,7 @@ Inicio
 <div class="container">
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
+			@include('partials.successMessage')
 			<div class="">
 				<h3>Bienvenido al sistema de inventario de la sala de redes</h3>
 				<p>
