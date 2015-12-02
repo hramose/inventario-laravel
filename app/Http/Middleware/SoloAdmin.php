@@ -35,8 +35,8 @@ class SoloAdmin {
 	{
 		if ($this->auth->user()->rol != 'admin')
 		{
-			\Session::flash('message', 'Intento entrar a una opción disponible solo para administradores del sistema' );
-			return redirect()->to('/');
+			\Session::flash('error', 'Intento entrar a una opción disponible solo para administradores del sistema' );
+			return \Redirect::back();
 		}
 		return $next($request);
 	}
