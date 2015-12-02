@@ -19,7 +19,15 @@ class UserSeeder extends Seeder {
 			'carnet'		=> 'GE201101',
 			'rol'				=> 'admin',
 			'email'			=> 'sage393@gmail.com',
-			'password' 	=> \Hash::make('greensam')
+			'password' 	=> \Hash::make('yolo')
+		));
+
+		\DB::table('users')-> insert(array(
+			'name' 			=> 'Nelson',
+			'carnet'		=> 'RO201101',
+			'rol'				=> 'admin',
+			'email'			=> 'josuer8a@gmail.com',
+			'password' 	=> \Hash::make('naruto')
 		));
 //------------------------------------------------------------------------------
 // Normal user
