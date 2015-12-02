@@ -30,7 +30,9 @@
 				<td>
 					@if (strcmp ($loan->fin_prestamo, 'Fecha no registrada' ) == 0 )
 						<a class="btn btn-default text-center btn-sm  btn-sp" href="{{ url('prestamos/'. $loan->id .'/give-back') }}" onclick="return confirm('¿Seguro que desea registrar devolución?')"><i class="glyphicon glyphicon-calendar"></i>&nbsp;&nbsp;&nbsp;Registrar devolución</a>
-					@else
+					@elseif (strcmp ($loan->fin_prestamo, 'Fecha no registrada' ) == 0 || strcmp ($loan->products->tipo, 'consumible' ) == 0)
+						Consumido
+					@elseif (strcmp ($loan->fin_prestamo, 'Fecha no registrada' ) != 0)
 						{{ $loan->fin_prestamo }}
 					@endif
 				</td>
